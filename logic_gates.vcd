@@ -1,0 +1,67 @@
+$date
+	Wed Oct 08 12:42:18 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module test_bench $end
+$var wire 1 ! ANDo $end
+$var wire 1 " NANDo $end
+$var wire 1 # NORo $end
+$var wire 1 $ NOTo $end
+$var wire 1 % ORo $end
+$var wire 1 & XNORo $end
+$var wire 1 ' XORo $end
+$var reg 1 ( a $end
+$var reg 1 ) b $end
+$scope module uut $end
+$var wire 1 ! ANDo $end
+$var wire 1 " NANDo $end
+$var wire 1 # NORo $end
+$var wire 1 $ NOTo $end
+$var wire 1 % ORo $end
+$var wire 1 & XNORo $end
+$var wire 1 ' XORo $end
+$var wire 1 * a $end
+$var wire 1 + b $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0+
+0*
+0)
+0(
+0'
+1&
+0%
+1$
+1#
+1"
+0!
+$end
+#10000
+0&
+0#
+1%
+1'
+1)
+1+
+#20000
+0$
+0)
+0+
+1(
+1*
+#30000
+1&
+0"
+1!
+0'
+1)
+1+
+#40000

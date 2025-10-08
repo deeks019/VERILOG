@@ -1,0 +1,68 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_012F8A20 .scope module, "test_bench" "test_bench" 2 3;
+ .timescale -9 -12;
+v011552D0_0 .net "ANDo", 0 0, L_012F4DA8; 1 drivers
+v011550C0_0 .net "NANDo", 0 0, L_01155610; 1 drivers
+v01155380_0 .net "NORo", 0 0, L_011555A0; 1 drivers
+v01155118_0 .net "NOTo", 0 0, L_012F33D8; 1 drivers
+v01154C48_0 .net "ORo", 0 0, L_012F3368; 1 drivers
+v01154CA0_0 .net "XNORo", 0 0, L_012FEBA8; 1 drivers
+v01154DA8_0 .net "XORo", 0 0, L_012F32F8; 1 drivers
+v01154EB0_0 .var "a", 0 0;
+v01154CF8_0 .var "b", 0 0;
+S_012F8BB8 .scope module, "uut" "logic_gates" 2 8, 3 1, S_012F8A20;
+ .timescale 0 0;
+L_012F4DA8 .functor AND 1, v01154EB0_0, v01154CF8_0, C4<1>, C4<1>;
+L_012F3368 .functor OR 1, v01154EB0_0, v01154CF8_0, C4<0>, C4<0>;
+L_012F33D8 .functor NOT 1, v01154EB0_0, C4<0>, C4<0>, C4<0>;
+L_012F32F8 .functor XOR 1, v01154EB0_0, v01154CF8_0, C4<0>, C4<0>;
+L_012F3330 .functor XOR 1, v01154EB0_0, v01154CF8_0, C4<0>, C4<0>;
+L_012FEBA8 .functor NOT 1, L_012F3330, C4<0>, C4<0>, C4<0>;
+L_01155648 .functor AND 1, v01154EB0_0, v01154CF8_0, C4<1>, C4<1>;
+L_01155610 .functor NOT 1, L_01155648, C4<0>, C4<0>, C4<0>;
+L_01155680 .functor OR 1, v01154EB0_0, v01154CF8_0, C4<0>, C4<0>;
+L_011555A0 .functor NOT 1, L_01155680, C4<0>, C4<0>, C4<0>;
+v012F4CA0_0 .alias "ANDo", 0 0, v011552D0_0;
+v012F4CF8_0 .alias "NANDo", 0 0, v011550C0_0;
+v012F4D50_0 .alias "NORo", 0 0, v01155380_0;
+v012FB088_0 .alias "NOTo", 0 0, v01155118_0;
+v012FB0E0_0 .alias "ORo", 0 0, v01154C48_0;
+v012FB138_0 .alias "XNORo", 0 0, v01154CA0_0;
+v01155010_0 .alias "XORo", 0 0, v01154DA8_0;
+v01155328_0 .net *"_s12", 0 0, L_01155648; 1 drivers
+v011551C8_0 .net *"_s16", 0 0, L_01155680; 1 drivers
+v01154D50_0 .net *"_s8", 0 0, L_012F3330; 1 drivers
+v01155068_0 .net "a", 0 0, v01154EB0_0; 1 drivers
+v01155278_0 .net "b", 0 0, v01154CF8_0; 1 drivers
+    .scope S_012F8A20;
+T_0 ;
+    %vpi_call 2 14 "$dumpfile", "logic_gates.vcd";
+    %vpi_call 2 15 "$dumpvars", 1'sb0, S_012F8A20;
+    %vpi_call 2 17 "$display", "a b | AND OR NOTA XOR NAND NOR XNOR";
+    %vpi_call 2 18 "$monitor", "%b %b |  %b   %b   %b   %b   %b    %b   %b", v01154EB0_0, v01154CF8_0, v011552D0_0, v01154C48_0, v01155118_0, v01154DA8_0, v011550C0_0, v01155380_0, v01154CA0_0;
+    %set/v v01154EB0_0, 0, 1;
+    %set/v v01154CF8_0, 0, 1;
+    %delay 10000, 0;
+    %set/v v01154EB0_0, 0, 1;
+    %set/v v01154CF8_0, 1, 1;
+    %delay 10000, 0;
+    %set/v v01154EB0_0, 1, 1;
+    %set/v v01154CF8_0, 0, 1;
+    %delay 10000, 0;
+    %set/v v01154EB0_0, 1, 1;
+    %set/v v01154CF8_0, 1, 1;
+    %delay 10000, 0;
+    %vpi_call 2 27 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "test_bench.v";
+    "logic_gates.v";
